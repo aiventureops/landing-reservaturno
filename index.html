@@ -113,7 +113,7 @@
       <div class="text-center">
         <div class="w-14 h-14 bg-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">🎉</div>
         <h3 class="font-bold mb-2">3. El bot hace el resto</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Reserva, confirma, y manda recordatorios automáticos. Vos solo recibís los turnos confirmados.</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Reserva, confirma, manda recordatorios y <strong>cobra automáticamente via Mercado Pago</strong>. Vos solo recibís los turnos confirmados y el dinero en tu cuenta.</p>
       </div>
     </div>
   </section>
@@ -136,7 +136,7 @@
           <p class="text-green-600 font-medium mb-1">Pro</p>
           <p class="text-4xl font-extrabold mb-4">$39<span class="text-lg font-normal text-gray-400">/mes</span></p>
           <ul class="space-y-2 text-sm text-gray-600 mb-6">
-            <li>✓ Reservas ilimitadas</li><li>✓ Servicios ilimitados</li><li>✓ Múltiples empleados</li><li>✓ Dashboard de gestión</li><li>✓ Pagos por WhatsApp</li>
+            <li>✓ Reservas ilimitadas</li><li>✓ Servicios ilimitados</li><li>✓ Múltiples empleados</li><li>✓ Dashboard de gestión</li><li>✓ Cobro automático via Mercado Pago</li>
           </ul>
           <a href="#waitlist" class="block text-center wa-gradient text-white font-semibold py-2.5 rounded-xl hover:opacity-90 transition">Quiero el Pro</a>
         </div>
@@ -160,12 +160,13 @@
   </footer>
 
   <script>
+    const FORM_API = 'https://enable-aaa-finished-tions.trycloudflare.com/submit';
     function handleSubmit(e) {
       e.preventDefault();
       const email = e.target.querySelector('input[type="email"]').value;
-      fetch('https://api.agentmail.to/v0/forms/reservaturno-waitlist', {
+      fetch(FORM_API, {
         method: 'POST', headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email, product: 'reservaturno' })
       }).catch(() => {});
       e.target.innerHTML = '<p class="text-green-600 font-semibold">✓ ¡Anotado! Te avisamos cuando abramos el acceso.</p>';
     }
