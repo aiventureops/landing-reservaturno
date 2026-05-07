@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReservaTurno — Reservas por WhatsApp para tu negocio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .wa-gradient { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+    .card-shadow { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-white border-b border-gray-100 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">📅</span>
+        <span class="font-bold text-gray-900 text-lg">ReservaTurno</span>
+      </div>
+      <a href="#waitlist" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold px-5 py-2 rounded-full text-sm transition">
+        Empezar gratis
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-green-600 text-sm font-medium">🇦🇷 🇺🇾 🇨🇱 🇧🇷 Hecho para LATAM</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-5 text-gray-900">
+          Tus clientes reservan por <span class="text-[#25D366]">WhatsApp</span>,<br/>tú te enfocas en tu negocio
+        </h1>
+        <p class="text-lg text-gray-500 mb-8 leading-relaxed">
+          Un bot inteligente en WhatsApp gestiona tus reservas 24/7. Sin apps para descargar, sin formularios complicados. Tus clientes ya usan WhatsApp — ahora también reservan por ahí.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="handleSubmit(event)">
+          <input type="email" placeholder="tu@email.com" required
+            class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-100 transition" />
+          <button type="submit" class="wa-gradient text-white font-semibold px-6 py-3 rounded-xl transition whitespace-nowrap hover:opacity-90">
+            Quiero probarlo
+          </button>
+        </form>
+        <p class="text-gray-400 text-sm mt-3">Gratis 30 días · Sin tarjeta de crédito</p>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="flex justify-center">
+        <div class="w-64 bg-white rounded-3xl border border-gray-200 card-shadow overflow-hidden">
+          <div class="wa-gradient px-4 py-4 flex items-center gap-3">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white font-bold">RT</div>
+            <div>
+              <p class="text-white font-semibold text-sm">ReservaTurno Bot</p>
+              <p class="text-white/70 text-xs">En línea</p>
+            </div>
+          </div>
+          <div class="bg-[#ECE5DD] p-4 space-y-3 min-h-[280px]">
+            <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2 text-sm max-w-[85%] shadow-sm">
+              👋 ¡Hola! ¿Cuándo querés reservar tu turno?
+            </div>
+            <div class="bg-[#DCF8C6] rounded-2xl rounded-tr-none px-3 py-2 text-sm max-w-[85%] ml-auto shadow-sm">
+              Mañana a las 10am
+            </div>
+            <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2 text-sm max-w-[85%] shadow-sm">
+              ✅ ¡Perfecto! Reservado para mañana 10:00 am. Te mando un recordatorio 1 hora antes.
+            </div>
+            <div class="bg-[#DCF8C6] rounded-2xl rounded-tr-none px-3 py-2 text-sm max-w-[85%] ml-auto shadow-sm">
+              Gracias! 🙏
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For whom -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center text-gray-900 mb-12">Para cualquier negocio que trabaja con turnos</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">💇 Peluquerías</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🏥 Consultorios</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🐾 Veterinarias</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">💅 Centros de estética</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🍽️ Restaurantes</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🎓 Tutores</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🏋️ Gimnasios</div>
+        <div class="bg-gray-50 rounded-xl px-4 py-3 text-center text-sm font-medium text-gray-700">🔧 Talleres</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <h2 class="text-2xl font-bold text-center text-gray-900 mb-14">Empezá en 3 pasos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="w-14 h-14 bg-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">⚙️</div>
+        <h3 class="font-bold mb-2">1. Configurá tu agenda</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Tus horarios disponibles, servicios y duración de turnos. Listo en menos de 10 minutos.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 bg-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">📲</div>
+        <h3 class="font-bold mb-2">2. Compartí tu link de WhatsApp</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Ponelo en tu Instagram, Facebook, o simplemente enviáselo a tus clientes. Un click y ya están reservando.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 bg-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">🎉</div>
+        <h3 class="font-bold mb-2">3. El bot hace el resto</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Reserva, confirma, y manda recordatorios automáticos. Vos solo recibís los turnos confirmados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center text-gray-900 mb-12">Precios simples</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 card-shadow">
+          <p class="text-gray-500 font-medium mb-1">Gratis</p>
+          <p class="text-4xl font-extrabold mb-4">$0<span class="text-lg font-normal text-gray-400">/mes</span></p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ Hasta 30 reservas/mes</li><li>✓ 1 servicio</li><li>✓ Bot de WhatsApp</li><li>✓ Recordatorios automáticos</li>
+          </ul>
+          <a href="#waitlist" class="block text-center border-2 border-green-400 text-green-600 font-semibold py-2.5 rounded-xl hover:bg-green-50 transition">Empezar gratis</a>
+        </div>
+        <div class="bg-white border-2 border-[#25D366] rounded-2xl p-6 card-shadow relative">
+          <div class="absolute -top-3 left-6 bg-[#25D366] text-white text-xs font-bold px-3 py-1 rounded-full">MÁS POPULAR</div>
+          <p class="text-green-600 font-medium mb-1">Pro</p>
+          <p class="text-4xl font-extrabold mb-4">$39<span class="text-lg font-normal text-gray-400">/mes</span></p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ Reservas ilimitadas</li><li>✓ Servicios ilimitados</li><li>✓ Múltiples empleados</li><li>✓ Dashboard de gestión</li><li>✓ Pagos por WhatsApp</li>
+          </ul>
+          <a href="#waitlist" class="block text-center wa-gradient text-white font-semibold py-2.5 rounded-xl hover:opacity-90 transition">Quiero el Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="waitlist" class="max-w-2xl mx-auto px-6 py-24 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">¿Querés ser de los primeros?</h2>
+    <p class="text-gray-500 mb-8">Acceso anticipado gratuito para los primeros 50 negocios.</p>
+    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="tu@email.com" required
+        class="flex-1 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-100 transition" />
+      <button type="submit" class="wa-gradient text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition">Me apunto</button>
+    </form>
+  </section>
+
+  <footer class="border-t border-gray-100 text-center py-8 text-gray-400 text-sm bg-white">
+    © 2026 ReservaTurno · Hecho con ❤️ para LATAM
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      fetch('https://api.agentmail.to/v0/forms/reservaturno-waitlist', {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ email })
+      }).catch(() => {});
+      e.target.innerHTML = '<p class="text-green-600 font-semibold">✓ ¡Anotado! Te avisamos cuando abramos el acceso.</p>';
+    }
+  </script>
+</body>
+</html>
